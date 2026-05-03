@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --surface: #0d1117;
+  --panel:   #161b22;
+  --border:  #21262d;
+  --accent:  #00ff9d;
+  --danger:  #ff4757;
+  --warning: #ffa502;
+  --muted:   #8b949e;
+  --text:    #e6edf3;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer utilities {
+  .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+  .bg-surface { background-color: var(--surface); }
+  .bg-panel { background-color: var(--panel); }
+  .bg-accent { background-color: var(--accent); }
+  .bg-danger { background-color: var(--danger); }
+  .bg-border { background-color: var(--border); }
+
+  .text-text { color: var(--text); }
+  .text-muted { color: var(--muted); }
+  .text-accent { color: var(--accent); }
+  .text-danger { color: var(--danger); }
+  .text-warning { color: var(--warning); }
+
+  .border-text { border-color: var(--text); }
+  .border-border { border-color: var(--border); }
+  .border-accent { border-color: var(--accent); }
+  .border-danger { border-color: var(--danger); }
+  .border-warning { border-color: var(--warning); }
+
+  .bg-danger\/10 { background-color: rgb(255 71 87 / 0.1); }
+  .bg-warning\/10 { background-color: rgb(255 165 2 / 0.1); }
+  .bg-accent\/10 { background-color: rgb(0 255 157 / 0.1); }
+  .border-danger\/50 { border-color: rgb(255 71 87 / 0.5); }
+
+  .hover\:bg-warning\/10:hover { background-color: rgb(255 165 2 / 0.1); }
+  .hover\:bg-danger\/10:hover { background-color: rgb(255 71 87 / 0.1); }
+  .hover\:border-text:hover { border-color: var(--text); }
+  .hover\:text-text:hover { color: var(--text); }
+}
+
+/* Recharts tooltip override */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.blink { animation: blink 1s step-end infinite; }
+
+@keyframes pulse-red {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-pulse_red { animation: pulse-red 1s ease-in-out infinite; }
